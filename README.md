@@ -2,11 +2,11 @@
 
 First of all, I went on the IP address using browser and it appeared a white page. So I analyzed the html code and I found this comment.
 
-<center><img src="img/comment.png"></center>
+<div><p align="center"><img  src="img/comment.png" /></div>
 
 I added that address in my `/etc/hosts` on my kali machine and then I reloaded the page.
 
-<center><img src="img/jeff_home_page.png"></center>
+<div><p align="center"><img  src="img/jeff_home_page.png" /></div>
 
 Meanwhile I had launched a scan to see the active services on the host and I found ports `80` and `22` open.
 
@@ -207,15 +207,15 @@ ________________________________________________
 
 BINGO! I can continue from here.
 
-<center><img src="img/wordpress.png"></center>
+<div><p align="center"><img  src="img/wordpress.png" /></div>
 
 I went to the `wp-admin` page and logged in using the password found in the .bak file. Since I'm authenticated, I tried to load a reverse shell by inserting some php code in the index.php page, but it was not possible. There must be some restriction preventing me from editing the php.
 
-<center><img src="img/update_fail.png"></center>
+<div><p align="center"><img  src="img/update_fail.png" /></div>
 
 I looked for other ways to upload PHP code and found the installed plugins section. One of the installed plugins is "hello dolly", I think it's a default plugin, so I modified the code of the `hello.php` page and managed to load my reverse shell.
 
-<center><img src="img/update_ok.png"></center>
+<div><p align="center"><img  src="img/update_ok.png" /></div>
 
 Finally I activated the plugin in the "Installed plugin" page, on my terminal I listened with netcat, and I got the connection.
 
@@ -536,7 +536,7 @@ THM{************************************}
 I tried putting the first flag on tryhackme, but it's not the right flag. At first I was strange, then I read the message between the brackets well and I understood.
 I took that string and hash it using cyberchef.
 
-<center><img src="img/hashing.png"></center>
+<div><p align="center"><img  src="img/hashing.png" /></div>
 
 To get a normal shell that would allow me to carry on with my searches without problems, I just typed the command `bash`.
 
@@ -653,7 +653,7 @@ Obviously the cronjob didn't work...
 
 After some hysterical laughter I remembered that the editor that starts when you run the `crontab` command is `vim`, and from vim it is possible to spawn a shell.
 
-<center><img src="img/shell_vim.png"></center>
+<div><p align="center"><img  src="img/shell_vim.png" /></div>
 
 From here I got a fully functional root shell and read the last flag.
 
